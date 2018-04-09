@@ -23,17 +23,30 @@
     </head>
 <body>
 <script>
-    if(!(/Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor))) {
-        document.write('<h1>Please open this page in Chrome browser</h1>');
+    function notChrome() {return !(/Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor));}
+    if(notChrome()) {
+        document.write('<h1 style="color: red;">Please open this page in Chrome browser</h1>');
     }
 </script>
 
 <h1>Google Chrome face detection</h1>
-<div>Go to <a href="#" target="_blank">chrome://flags/#enable-experimental-web-platform-features</a> and enable <strong> Experimental Web Platform features </strong></div>
-<h3>Upload your own image</h3>
-<input type="file" style="margin-bottom: 16px;" onchange="loadImage(this)" accept=".png,.jpg">
+<script>
+    if(!notChrome() && !window.FaceDetector) {
+        document.write('<div><strong>Face detection is not enabled!</strong> Go to <a href="#" target="_blank">chrome://flags/#enable-experimental-web-platform-features</a> and enable <strong> Experimental Web Platform features </strong></div>');
+    }
+</script>
+<script>
+    if(window.FaceDetector) {
+        document.write('<h3>Upload your own image</h3><input type="file" style="margin-bottom: 16px;" onchange="loadImage(this)" accept=".png,.jpg">');
+    }
+</script>
 <div class="container">
-    <img src="test.jpg" onclick="imageClick()"/>
+    <script>
+        if(window.FaceDetector) {
+            document.write('<img src="test.jpg" onclick="imageClick()"/>');
+        }
+    </script>
+    
     <div class="boxes"></div>
 </div>
 
