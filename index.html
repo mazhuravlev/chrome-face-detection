@@ -1,0 +1,44 @@
+
+<html>
+    <head>
+        <title>
+            Google Chrome face detection
+        </title>
+        <style>
+            .face {
+                border: 2px solid yellow;
+                position: absolute;
+            }
+            .boxes {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+
+            .container {
+                position: relative;
+            
+            }
+        </style>
+    </head>
+<body>
+<script>
+    if(!(/Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor))) {
+        document.write('<h1>Please open this page in Chrome browser</h1>');
+    }
+</script>
+
+<h1>Google Chrome face detection</h1>
+<div>Go to <a href="#" target="_blank">chrome://flags/#enable-experimental-web-platform-features</a> and enable <strong> Experimental Web Platform features </strong></div>
+<h3>Upload your own image</h3>
+<input type="file" style="margin-bottom: 16px;" onchange="loadImage(this)">
+<div class="container">
+    <img src="test.jpg" onclick="imageClick()"/>
+    <div class="boxes"></div>
+</div>
+
+<a href="https://github.com/mazhuravlev/chrome-face-detection"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+<script src="test.js"></script>
+</body>
+</html>
