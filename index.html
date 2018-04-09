@@ -30,7 +30,6 @@
 </script>
 
 <h1>Google Chrome face detection</h1>
-
 <script>
     if(!notChrome() && !window.FaceDetector) {
         document.write('<div><strong>Face detection is not enabled!</strong> Go to <a href="#" target="_blank">chrome://flags/#enable-experimental-web-platform-features</a> and enable <strong> Experimental Web Platform features </strong></div>');
@@ -38,7 +37,7 @@
 </script>
 <script>
     if(window.FaceDetector) {
-        document.write('<h3>Upload your own image</h3><input type="file" style="margin-bottom: 16px;" onchange="loadImage(this)">');
+        document.write('<h3>Upload your own image</h3><input type="file" style="margin-bottom: 16px;" onchange="loadImage(this)" accept=".png,.jpg">');
     }
 </script>
 <div class="container">
